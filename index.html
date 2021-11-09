@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-    <title>Hello, world!</title>
+    <title>Noticias de ciencia</title>
   </head>
   <body>
     <!--Header-->
@@ -30,10 +30,10 @@
               <a class="nav-link" href="#">Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-contacto" href="#">Contacto</a>
+              <a class="nav-link" href="#">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
             </li>
           </ul>
           <!--Formulario de busqueda
@@ -69,7 +69,7 @@
                 <p class="d-none d-md-block">Enterate de las noticias de ciencia y tecnología de la última semana.<br>
                   Lo actualizamos cada semana, ¡no olvides suscribirte!.
                 </p>
-                <a href="#" class="btn btn-outline-light">Ya tengo cuenta</a>
+                <a href="#" class="btn btn-outline-light" data-toggle="modal" data-target="#modalLogin">Ya tengo cuenta</a>
                 <button type="button" class="btn btn-suscribe">¡Quiero suscribirme!</button>
               </div>
             </div>
@@ -183,10 +183,10 @@
       <section id="frase">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-12 col-lg-6 pl-0 pr-0">
-              <img src="assets/images/Marie_Curie_Tekniska_museet.jpg" alt="Marie Curie">
+            <div class="col-lg-2 pl-0 pr-0">
+              <img class="img-fluid w-100" src="assets/images/Marie_Curie_Tekniska_museet.jpg" alt="Marie Curie">
             </div>
-            <div class="col-12 col-lg-6 pt-4 pb-4">
+            <div class="col-lg-10 pt-2">
               <small>La biografía de la semana</small>
               <h2>Maria Salomea Skłodowska-Curie</h2>
               <blockquote class="palo">
@@ -198,12 +198,58 @@
                 </p>
               </blockquote>
               <p>Maria Salomea Skłodowska-Curie, conocida como Marie Curie, nació en Varsovia, Polonia, el 7 de noviembre de 1867, se nacionalizó francesa y falleció en Passy, Francia el 4 de julio de 1934. Fue pionera en el campo de la radiactividad. Entre otros méritos, fue la primera persona en recibir dos premios Nobel en distintas especialidades, Física y Química, y la primera mujer en ocupar el puesto de profesora en la Universidad de París.</p>
-              <a class="btn btn-outline-light" href="https://youtu.be/3tuWzjaQuA4">Conoce más</a>
+              <a class="btn btn-outline-light mb-2" href="https://youtu.be/3tuWzjaQuA4">Conoce más</a>
             </div>
           </div>
         </div>
       </section>
     <!--/Frase de la semana-->
+
+    <!--Footer-->
+    <footer>
+      <p>
+        Sebastián Paz - Herramientas de desarrollo web - 2021
+      </p>
+    </footer>
+    <!--/Footer-->
+
+   
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Iniciar sesión</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-suscribe">Entrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/Modal-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

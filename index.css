@@ -7,7 +7,7 @@
     color: white;
 }
 
-.text-contacto {
+.text-login {
     color: #97c93e !important;
 }
 .btn-suscribe:hover {
@@ -46,10 +46,27 @@
 #frase {
     background-color: #343a40;
     color: white;
+
 }
 
 .palo {
     border-left: 5px solid;
     padding-left: 2%;
-   border-color: #97c93e;
+    border-color: #97c93e;
 }
+
+footer {
+    width: 100%;
+    height: 15%;
+    background-color: #343A40;
+    border-top: 35px solid #97c93e;
+    text-align: center;
+    position: absolute;
+}
+
+footer p {
+    color: white;
+    margin-top: 30px;
+    
+}
+
