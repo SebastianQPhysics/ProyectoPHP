@@ -39,3 +39,17 @@
 
 }
 
+#frase img {
+    max-width: 100%;
+}
+
+#frase {
+    background-color: #343a40;
+    color: white;
+}
+
+.palo {
+    border-left: 5px solid;
+    padding-left: 2%;
+   border-color: #97c93e;
+}
