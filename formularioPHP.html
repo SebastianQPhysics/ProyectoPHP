@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link href="contacto.css" rel="stylesheet">
+    <link href="formularioPHP.css" rel="stylesheet">
 
     <title>Contacto</title>
   </head>
@@ -18,7 +18,7 @@
       <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="assets/logo/fisico.png" alt="Logo personal">
+            <img src="proyectoBootstrap/assets/logo/fisico.png" alt="Logo personal">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -66,29 +66,32 @@
                     </div>
                     <p class="text-muted mb-5">Ingresa la siguiente información para registrarte.</p>
 
-                    <form>
+                    <form action="formulario.php" method="post">
                         <div class="form-row mb-2">
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" placeholder="Tu nombre">
+                                <input type="text" class="form-control" placeholder="Tu nombre" name="nombre" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Apellido <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" placeholder="Tu apellido">
+                                <input type="text" class="form-control" placeholder="Tu apellido" name="apellido" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Rut/ID <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Ingresa tu número de identificación o RUT">
+                            <input type="text" class="form-control" placeholder="Ingresa tu número de identificación o RUT" name="rut" required>
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Dirección <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Ingresa tu dirección">
+                            <input type="text" class="form-control" placeholder="Ingresa tu dirección" name="direccion" required>
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Sexo <span class="text-danger">*</span></label>
-                            <select class="custom-select custom-select-lg mb-3">
-                                <option class="form-control" selected></option>
+                            <select class="custom-select custom-select-lg mb-3" name="sexo" required>
+                                <!--
+                                  <input type="option" name="sexo" value=1 required>Hombre
+                                -->
+                                <option class="form-control" selected hidden value="">Eligue opción</option>
                                 <option class="form-control" value="1">Hombre</option>
                                 <option class="form-control" value="2">Mujer</option>
                                 <option class="form-control" value="3">No binario</option>
@@ -96,20 +99,15 @@
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Ingrese su fecha de nacimiento <span class="text-danger">*</span></label>
-                            <input type="date" id="start" name="trip-start"
+                            <input type="date" id="start" name="nacimiento" required
                                 value="2018-07-22"
                                 max="2021-11-09">
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Edad<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Ingresa tu edad">
+                            <input type="text" class="form-control" placeholder="Ingresa tu edad" name="edad" required>
                         </div>
-                        <div class="form-group mb-5">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label text-muted">Al seleccionar esta casilla aceptas nuestro aviso de privacidad y los términos y condiciones</label>
-                            </div>
-                        </div>
+            
                         <button class="btn btn-primary width-100">Regístrate</button>
                     </form>
                     
