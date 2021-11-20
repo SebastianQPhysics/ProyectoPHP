@@ -35,10 +35,10 @@ echo $query->num_rows;
                   <th>RUT/ID</th>
                   <th>Nombre</th>
                   <th>Apellido</th>
-                  <th>Fecha de nacimiento</th>
-                  <th>Edad</th>
-                  <th>Sexo</th>
                   <th>Dirección</th>
+                  <th>Sexo</th>
+                  <th>Nacimiento</th>
+                  <th>Edad</th>
               </tr>
           </thead>
 
@@ -50,10 +50,10 @@ echo $query->num_rows;
                   <th><?php echo $row['rut']?></th>
                   <th><?php echo $row['nombre']?></th>
                   <th><?php echo $row['apellido']?></th>
+                  <th><?php echo $row['direccion']?></th>
+                  <th><?php echo $row['sexo']?></th>
                   <th><?php echo $row['nacimiento']?></th>
                   <th><?php echo $row['edad']?></th>
-                  <th><?php echo $row['sexo']?></th>
-                  <th><?php echo $row['direccion']?></th>
                   <th><a href="actualizar.php?id=<?php echo $row['rut']?>" class="btn btn-info">Editar</a></th>
                   <th><a href="delete.php?id=<?php echo $row['rut']?>" class="btn btn-danger">Eliminar</a></th>
               <?php } ?>
