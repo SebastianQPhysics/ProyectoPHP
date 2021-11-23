@@ -44,6 +44,7 @@ echo $query->num_rows;
 
           <tbody>
               <?php
+                $sexoArray = ["Masculino", "Femenino", "No binario"];
                 while ($row=$query->fetch_assoc()){
               ?>
               <tr>
@@ -51,11 +52,11 @@ echo $query->num_rows;
                   <th><?php echo $row['nombre']?></th>
                   <th><?php echo $row['apellido']?></th>
                   <th><?php echo $row['direccion']?></th>
-                  <th><?php echo $row['sexo']?></th>
+                  <th><?php echo $sexoArray[$row['sexo']-1]?></th>
                   <th><?php echo $row['nacimiento']?></th>
                   <th><?php echo $row['edad']?></th>
-                  <th><a href="actualizar.php?id=<?php echo $row['rut']?>" class="btn btn-info">Editar</a></th>
-                  <th><a href="delete.php?id=<?php echo $row['rut']?>" class="btn btn-danger">Eliminar</a></th>
+                  <th><a href="actualizar.php?rut=<?php echo $row['rut']?>" class="btn btn-info">Editar</a></th>
+                  <th><a href="delete.php?rut=<?php echo $row['rut']?>" class="btn btn-danger">Eliminar</a></th>
               <?php } ?>
           </tbody>
       </table>

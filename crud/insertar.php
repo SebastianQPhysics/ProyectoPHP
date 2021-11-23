@@ -12,7 +12,6 @@ $nacimiento=$_POST['nacimiento'];
 $edad=$_POST['edad'];
 
 
-
 $sql="INSERT INTO usuario VALUES ('$rut','$nombre','$apellido','$direccion','$sexo','$nacimiento','$edad')";
 $query=mysqli_query($con,$sql);
 
