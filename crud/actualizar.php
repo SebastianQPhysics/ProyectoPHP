@@ -106,9 +106,6 @@ $row=mysqli_fetch_array($query);
                                     <!--
                                     <input type="option" name="sexo" value=1 required>Hombre
                                     -->
-                                    
-
-                    
                                     <option <?php if ($row['sexo'] == "1" )echo 'selected' ?> class="form-control" value="1">Hombre</option>
                                     <option <?php if ($row['sexo'] == "2" )echo 'selected' ?> class="form-control" value="2">Mujer</option>
                                     <option <?php if ($row['sexo'] == "3" )echo 'selected' ?> class="form-control" value="3">No binario</option>
