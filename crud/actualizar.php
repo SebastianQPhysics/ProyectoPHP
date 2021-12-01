@@ -2,7 +2,17 @@
 
 include ("conexion.php");
 $con=conectar();
-
+session_start();
+function nombreUsuario(){
+  if (isset($_SESSION['nombre'])){echo '<li class="nav-item"><a target="_blank" class="nav-link" href="mostrarDatos.php">PANEL</a></li>';}  
+  if (isset($_SESSION['nombre'])){echo ' <li class="nav-item"><a class="nav-link text-login" href="desconectar.php">Desconectar</a></li>';} 
+  else{ echo ' <li class="nav-item"><a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>'; }
+  } 
+  
+if (isset($_SESSION['loginError'])){
+  echo '<script language="javascript">alert("Error de autentificación,volviendo al login");window.location.href="index.php"</script>';
+  unset($_SESSION['loginError']);
+}
 $rut=$_GET['rut'];
 
 $sql="SELECT * FROM usuario WHERE rut='$rut'";
@@ -82,6 +92,15 @@ $row=mysqli_fetch_array($query);
                     <form action="update.php" method="POST">
 
                         <input type="hidden" name="rut" value="<?php echo $row['rut'] ?>">
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="correo" value="<?php echo $row['correo']?>">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="contraseña" value="<?php echo $row['contraseña']?>">
+                      </div>
                             <div class="form-row mb-2">
                                 <div class="form-group col-md-6">
                                     <label class="font-weight-bold">Nombre <span class="text-danger">*</span></label>

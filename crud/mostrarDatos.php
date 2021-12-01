@@ -29,7 +29,7 @@ $query=mysqli_query($con,$sql);
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="assets/logo/fisico.png" alt="Logo personal">
+          <img src="../assets/logo/fisico.png" alt="Logo personal">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,13 +41,7 @@ $query=mysqli_query($con,$sql);
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="formularioPHP.html">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+              <a class="nav-link" href="usuario.php">Contacto</a>
             </li>
           </ul>
         </div>
@@ -58,11 +52,13 @@ $query=mysqli_query($con,$sql);
     <!--Main-->
    
     <!--/Main-->
-    <div class="w-75 mx-auto" style="min-height: 600px;">
+    <div class="px-3 mt-5 mx-auto" style="min-height: 600px;">
        
       <table class="table table table-hover table-dark">
-          <thead class="table-success table-striped">
+          <thead class="table-striped" style="background-color: #97c93e">
               <tr>
+                  <th>Correo</th>
+                  <th>Contraseña</th>
                   <th>RUT/ID</th>
                   <th>Nombre</th>
                   <th>Apellido</th>
@@ -79,6 +75,8 @@ $query=mysqli_query($con,$sql);
                 while ($row=$query->fetch_assoc()){
               ?>
               <tr>
+                  <th><?php echo $row['correo']?></th>
+                  <th><?php echo $row['contraseña']?></th>
                   <th><?php echo $row['rut']?></th>
                   <th><?php echo $row['nombre']?></th>
                   <th><?php echo $row['apellido']?></th>

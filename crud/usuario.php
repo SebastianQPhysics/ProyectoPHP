@@ -2,6 +2,17 @@
 
 include ("conexion.php");
 $con=conectar();
+session_start();
+function nombreUsuario(){
+  if (isset($_SESSION['nombre'])){echo '<li class="nav-item"><a target="_blank" class="nav-link" href="mostrarDatos.php">PANEL</a></li>';}  
+  if (isset($_SESSION['nombre'])){echo ' <li class="nav-item"><a class="nav-link text-login" href="desconectar.php">Desconectar</a></li>';} 
+  else{ echo ' <li class="nav-item"><a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>'; }
+  } 
+  
+if (isset($_SESSION['loginError'])){
+  echo '<script language="javascript">alert("Error de autentificación,volviendo al login");window.location.href="index.php"</script>';
+  unset($_SESSION['loginError']);
+}
 
 $sql="SELECT * FROM usuario";
 $query=mysqli_query($con,$sql);
@@ -29,7 +40,7 @@ $row=mysqli_fetch_array($query);
       <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="proyectoBootstrap/assets/logo/fisico.png" alt="Logo personal">
+            <img src="../assets/logo/fisico.png" alt="Logo personal">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,17 +49,14 @@ $row=mysqli_fetch_array($query);
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Nosotros</a>
+                <a class="nav-link" href="../index.php">Home</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#">Contacto <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
-              </li>
+            <?php 
+              nombreUsuario();
+            ?>
             </ul>
             <!--Formulario de busqueda
             <form class="form-inline my-2 my-lg-0">
@@ -78,6 +86,15 @@ $row=mysqli_fetch_array($query);
                     <p class="text-muted mb-5">Ingresa la siguiente información para registrarte.</p>
 
                     <form action="insertar.php" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="correo" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="contraseña" required>
+                      </div>
                         <div class="form-row mb-2">
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bold">Nombre <span class="text-danger">*</span></label>

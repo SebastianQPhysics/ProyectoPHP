@@ -10,9 +10,11 @@ $direccion=$_POST['direccion'];
 $sexo=$_POST['sexo'];
 $nacimiento=$_POST['nacimiento'];
 $edad=$_POST['edad'];
+$correo=$_POST['correo'];
+$contraseña=$_POST['contraseña'];
 
 
-$sql="INSERT INTO usuario VALUES ('$rut','$nombre','$apellido','$direccion','$sexo','$nacimiento','$edad')";
+$sql="INSERT INTO usuario VALUES ('$rut','$nombre','$apellido','$direccion','$sexo','$nacimiento','$edad','$correo','$contraseña')";
 $query=mysqli_query($con,$sql);
 
 if($query){

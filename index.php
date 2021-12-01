@@ -1,3 +1,19 @@
+<?php 
+  session_start();
+  function nombreUsuario(){
+    if (isset($_SESSION['nombre'])){echo '<li class="nav-item"><a target="_blank" class="nav-link" href="crud/mostrarDatos.php">PANEL</a></li>';}  
+    if (isset($_SESSION['nombre'])){echo ' <li class="nav-item"><a class="nav-link text-login" href="desconectar.php">Desconectar</a></li>';} 
+    else{ echo ' <li class="nav-item"><a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>'; }
+    } 
+    
+  if (isset($_SESSION['loginError'])){
+    echo '<script language="javascript">alert("Error de autentificación,volviendo al login");window.location.href="index.php"</script>';
+    unset($_SESSION['loginError']);
+  }
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,15 +42,15 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+          
             <li class="nav-item">
-              <a class="nav-link" href="#">Nosotros</a>
+              <a class="nav-link" href="crud/usuario.php">Contacto</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="formularioPHP.html">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-login" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
-            </li>
+        
+              <?php
+                nombreUsuario(); 
+              ?>
+            
           </ul>
           <!--Formulario de busqueda
           <form class="form-inline my-2 my-lg-0">
@@ -69,8 +85,7 @@
                 <p class="d-none d-md-block">Enterate de las noticias de ciencia y tecnología de la última semana.<br>
                   Lo actualizamos cada semana, ¡no olvides suscribirte!.
                 </p>
-                <a href="#" class="btn btn-outline-light" data-toggle="modal" data-target="#modalLogin">Ya tengo cuenta</a>
-                <a href="formularioPHP.html" type="button" class="btn btn-suscribe">¡Quiero suscribirme!</a>
+               
               </div>
             </div>
           </div>
@@ -221,26 +236,26 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="crud/login.php" method="POST">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="correo">
                 <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="contraseña">
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
               </div>
-            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary">¿Olvidó su contraseña?</button>
-            <button type="button" class="btn btn-suscribe">Entrar</button>
+            <button type="submit" class="btn btn-secondary">¿Olvidó su contraseña?</button>
+            <button type="submit" class="btn btn-suscribe">Entrar</button>
           </div>
+          </form>
         </div>
       </div>
     </div>
